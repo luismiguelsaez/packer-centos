@@ -1,0 +1,7 @@
+---
+
+- name: Dummy
+  hosts: all
+  tasks:
+
+    - command: cat /etc/issue
