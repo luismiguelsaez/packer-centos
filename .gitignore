@@ -3,3 +3,4 @@ packer_cache/
 isos/
 roles/
 *.retry
+.venv

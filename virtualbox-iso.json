@@ -7,7 +7,8 @@
             "communicator": "ssh",
             "guest_os_type": "RedHat_64",
             "http_directory": "http",
-            "iso_checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
+            "iso_checksum_type": "sha256",
+            "iso_checksum": "659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
             "iso_urls": [
                 "http://mirror.airenetworks.es/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso",
                 "file://isos/CentOS-7-x86_64-Minimal-1804.iso"
@@ -30,14 +31,17 @@
     "post-processors": [
         {
             "type": "amazon-import",
-            "access_key": "MyAccessKey",
-            "secret_key": "THISISSECRET",
-            "region": "us-east-1",
-            "s3_bucket_name": "test.domain.com"
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_key`}}",
+            "region": "{{user `aws_region`}}",
+            "s3_bucket_name": "smartdigits-devops"
         }
     ],
     "variables": {
         "ssh_name": "vagrant",
-        "ssh_pass": "vagrant"
+        "ssh_pass": "vagrant",
+        "aws_access_key": "AKIA5PIWYJR5RFZGRMVD",
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "aws_region": "eu-west-1"
     }
 }

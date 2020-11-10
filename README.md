@@ -2,6 +2,8 @@
 
 ## Install python requirements
 ```
+virtualenv -p /bin/python3 .venv
+. .venv/bin/activate
 pip install -r requirements.txt
 ```
 
